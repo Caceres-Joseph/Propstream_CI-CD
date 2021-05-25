@@ -25,15 +25,16 @@ exports.lambdaHandler = async (event) => {
     pdfBuffer = await getStream.buffer(doc);
     pdfBase64 = pdfBuffer.toString('base64');
 
-    const response = {
+    return {
         statusCode: 200,
-        headers: {
-            'Content-Length': Buffer.byteLength(pdfBase64),
-            'Content-Type': 'application/pdf',
-            'Content-disposition': 'attachment;filename=test.pdf'
+        body: JSON.stringify(
+        {
+            message: 'Go Serverless v4.0! Your function executed successfully! blue/green from ECS'
+            //input: event,
         },
-        isBase64Encoded: true,
-        body: pdfBase64
+        null,
+        2
+        ),
     };
-    return response;
+
 };
