@@ -10,7 +10,8 @@ phases:
   build:
     commands:
       - sls deploy -s dev
-      - serverless invoke --function save --log --path event_mock.json
+      - sls invoke --function text
+      - sls invoke --function save --log --path event_mock.json
 artifacts:
   files:
     - '**/*'
