@@ -28,13 +28,24 @@ exports.lambdaHandler = async (event) => {
     return {
         statusCode: 200,
         body: JSON.stringify(
-        {
-            message: 'Go Serverless v4.0! Your function executed successfully! blue/green from ECS'
+          {
+            message: 'Go Serverless v4.0! Your function executed successfully! blue/green'
             //input: event,
-        },
-        null,
-        2
+          },
+          null,
+          2
         ),
+      };
+      
+    const response = {
+        statusCode: 200,
+        headers: {
+            'Content-Length': Buffer.byteLength(pdfBase64),
+            'Content-Type': 'application/pdf',
+            'Content-disposition': 'attachment;filename=test.pdf'
+        },
+        isBase64Encoded: true,
+        body: pdfBase64
     };
-
+    return response;
 };
