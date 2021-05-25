@@ -29,14 +29,14 @@ exports.lambdaHandler = async (event) => {
         statusCode: 200,
         body: JSON.stringify(
           {
-            message: 'Go Serverless v4.0! Your function executed successfully! blue/green'
+            message: 'Go Serverless v1.0! Your function executed successfully! blue/green, test'
             //input: event,
           },
           null,
           2
         ),
       };
-      
+
     const response = {
         statusCode: 200,
         headers: {
